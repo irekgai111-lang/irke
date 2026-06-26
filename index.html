@@ -107,31 +107,50 @@
   .lang-btn{padding:5px 11px;border-radius:20px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:rgba(255,255,255,.55);font-size:11px;font-weight:700;letter-spacing:.1em;cursor:pointer;transition:all .22s;font-family:'Inter',Arial,sans-serif;}
   .lang-btn:hover{background:rgba(255,255,255,.16);color:#fff;}
   .lang-btn.active{background:linear-gradient(95deg,#ff5db1,#b14bff 55%,#6a3bff);border-color:transparent;color:#fff;box-shadow:0 4px 14px rgba(177,75,255,.45);}
-
   .frame{position:relative;overflow:hidden;}
-  .eye-spark{position:absolute;top:30%;left:60%;width:0;height:0;pointer-events:none;z-index:6;}
-  .eye-spark::before{
-    content:'';position:absolute;width:6px;height:6px;border-radius:50%;background:#fff;
-    transform:translate(-50%,-50%) scale(0);
-    box-shadow:0 0 6px 3px rgba(255,255,255,.98),0 0 18px 8px rgba(230,210,255,.75),0 0 36px 16px rgba(200,180,255,.35);
-    animation:sparkCore 5s ease-in-out infinite;}
-  .eye-spark::after{
-    content:'✦';position:absolute;font-size:28px;color:#fff;line-height:1;
-    transform:translate(-50%,-50%) scale(0) rotate(-15deg);
-    text-shadow:0 0 10px rgba(255,255,255,.95),0 0 22px rgba(210,190,255,.85);
-    animation:sparkRays 5s ease-in-out infinite;}
-  @keyframes sparkCore{
-    0%,78%,100%{transform:translate(-50%,-50%) scale(0);opacity:0;}
-    83%{transform:translate(-50%,-50%) scale(.4);opacity:.5;}
-    88%{transform:translate(-50%,-50%) scale(1.6);opacity:1;}
-    92%{transform:translate(-50%,-50%) scale(1);opacity:.85;}
-    97%{transform:translate(-50%,-50%) scale(2.8);opacity:0;}}
-  @keyframes sparkRays{
-    0%,78%,100%{transform:translate(-50%,-50%) scale(0) rotate(-15deg);opacity:0;}
-    83%{transform:translate(-50%,-50%) scale(.25) rotate(0deg);opacity:.4;}
+83%{transform:translate(-50%,-50%) scale(.25) rotate(0deg);opacity:.4;}
     88%{transform:translate(-50%,-50%) scale(1.1) rotate(12deg);opacity:1;}
     92%{transform:translate(-50%,-50%) scale(.85) rotate(18deg);opacity:.9;}
     97%{transform:translate(-50%,-50%) scale(.1) rotate(25deg);opacity:0;}}
+
+  .eye-spark{
+    position:absolute;top:30%;left:60%;
+    width:5px;height:5px;border-radius:50%;
+    background:#fff;transform:translate(-50%,-50%) scale(0);
+    box-shadow:0 0 8px 4px rgba(255,255,255,.95),0 0 22px 9px rgba(230,215,255,.65);
+    pointer-events:none;z-index:6;
+    animation:sparkDot 5s ease-in-out infinite;}
+  .eye-spark::before{
+    content:'';position:absolute;
+    width:38px;height:2px;border-radius:2px;
+    top:50%;left:50%;
+    background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.92) 50%,transparent 100%);
+    transform:translate(-50%,-50%) scaleX(0);
+    animation:sparkH 5s ease-in-out infinite;}
+  .eye-spark::after{
+    content:'';position:absolute;
+    width:2px;height:38px;border-radius:2px;
+    top:50%;left:50%;
+    background:linear-gradient(180deg,transparent 0%,rgba(255,255,255,.92) 50%,transparent 100%);
+    transform:translate(-50%,-50%) scaleY(0);
+    animation:sparkV 5s ease-in-out infinite;}
+  @keyframes sparkDot{
+    0%,78%,100%{transform:translate(-50%,-50%) scale(0);opacity:0;}
+    84%{transform:translate(-50%,-50%) scale(1.8);opacity:1;}
+    91%{transform:translate(-50%,-50%) scale(1.1);opacity:.9;}
+    97%{transform:translate(-50%,-50%) scale(0);opacity:0;}}
+  @keyframes sparkH{
+    0%,78%,100%{transform:translate(-50%,-50%) scaleX(0);opacity:0;}
+    84%{transform:translate(-50%,-50%) scaleX(.3);opacity:.7;}
+    90%{transform:translate(-50%,-50%) scaleX(1);opacity:1;}
+    95%{transform:translate(-50%,-50%) scaleX(1.15);opacity:.4;}
+    97%{transform:translate(-50%,-50%) scaleX(0);opacity:0;}}
+  @keyframes sparkV{
+    0%,78%,100%{transform:translate(-50%,-50%) scaleY(0);opacity:0;}
+    84%{transform:translate(-50%,-50%) scaleY(.3);opacity:.7;}
+    90%{transform:translate(-50%,-50%) scaleY(1);opacity:1;}
+    95%{transform:translate(-50%,-50%) scaleY(1.15);opacity:.4;}
+    97%{transform:translate(-50%,-50%) scaleY(0);opacity:0;}}
 </style>
 </head>
 <body>
