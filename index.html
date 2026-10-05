@@ -160,6 +160,71 @@ body { height:100svh; height:100dvh; min-height:0; padding:max(12px,env(safe-are
 @media (max-width:320px){.contact-button{white-space:normal;overflow-wrap:anywhere;font-size:12.5px;}}
 
 </style>
+<style id="design-preview">
+:root{--ink:#160e13;--wine:#34202a;--wine2:#4b2c37;--cream:#fff4e5;--gold:#e9c88f;--muted:#e8d8d1}
+html,body{background:var(--ink);color:var(--cream)}
+body{font-family:Georgia,'Times New Roman',serif;overflow:auto;min-height:100dvh;height:auto}
+.aurora{inset:0;filter:blur(38px);opacity:.75;animation:none;background:radial-gradient(ellipse 65% 55% at 50% 18%,#754753 0%,transparent 76%),radial-gradient(ellipse 65% 75% at 15% 85%,#563041 0%,transparent 80%),#160e13}
+.card,.compact.card{max-width:470px;padding:18px 23px 22px;border-radius:27px;background:linear-gradient(155deg,rgba(77,47,57,.97),rgba(30,19,25,.97) 58%,rgba(49,31,36,.98));border:1px solid rgba(233,200,143,.56);box-shadow:0 20px 62px #080407a8,inset 0 1px 0 #ffffff26;overflow:hidden}
+.card:before{content:'';position:absolute;inset:8px;border:1px solid rgba(233,200,143,.25);border-radius:20px;pointer-events:none}
+.lang-switch,.compact .lang-switch{position:relative;border-bottom:1px solid #e9c88f55;gap:7px;margin-bottom:12px;padding-bottom:12px}
+.lang-btn,.compact .lang-btn{background:transparent;border:1px solid #e9c88f85;border-radius:999px;box-shadow:none;color:var(--cream);font:600 13px/1 Georgia,'Times New Roman',serif;min-height:40px;padding:4px}
+.lang-btn:hover{background:#e9c88f22;color:#fff}
+.lang-btn.active{background:var(--gold);border-color:var(--gold);color:#2a1820;box-shadow:0 3px 15px #e9c88f33}
+.eyebrow,.compact .eyebrow{color:var(--gold);font:600 11px/1.25 Georgia,'Times New Roman',serif;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+.frame,.compact .frame{padding:6px;margin-bottom:12px;border-radius:19px;transform:none;background:linear-gradient(145deg,#f7ddac,#845d59,#d4ad78);box-shadow:0 12px 32px #0f070baa}
+.frame:hover{transform:none}
+.frame img,.frame video{border-radius:13px}
+.name,.compact .name{font-family:Georgia,'Times New Roman',serif;font-size:clamp(44px,7svh,65px);font-weight:500;letter-spacing:.035em;line-height:1.02;margin:4px 0 4px;background:none;color:var(--cream);text-shadow:0 3px 18px #08030666;filter:none;animation:none}
+.name::after{display:none}
+.role,.compact .role{font:500 12px/1.3 Georgia,'Times New Roman',serif;letter-spacing:.17em;text-transform:uppercase;color:var(--gold);margin:2px 0 12px}
+.offer,.compact .offer{font-family:Georgia,'Times New Roman',serif!important;font-weight:500!important;font-size:clamp(23px,3.5svh,31px)!important;line-height:1.16!important;color:var(--cream)!important;text-shadow:none!important;letter-spacing:-.015em;margin:3px 0 7px!important}
+.tagline,.compact .tagline{font:400 clamp(15px,2.2svh,18px)/1.42 Georgia,'Times New Roman',serif;color:var(--muted);margin:5px 2px 12px}
+#i18n-limited,.compact #i18n-limited{color:var(--gold)!important;font:600 11px/1.2 Georgia,'Times New Roman',serif!important;letter-spacing:.16em!important;margin-bottom:15px!important}
+.contact-buttons{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:8px 0 0}
+.contact-button{min-width:0;min-height:83px;padding:9px 3px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:16px;border:1px solid #e9c88f88;background:linear-gradient(160deg,#61414b,#32212a);box-shadow:inset 0 1px 0 #ffffff30,0 5px 14px #0f080a77;color:var(--cream);text-decoration:none;white-space:normal;transition:transform .2s,background .2s,border-color .2s}
+.contact-button:hover{transform:translateY(-3px);background:#694650;border-color:var(--gold);filter:none;box-shadow:0 9px 20px #0f080a99}
+.contact-button svg{display:block;width:24px;height:24px;flex:none;color:var(--gold)}
+.contact-button .brand{font:600 12px/1.1 Georgia,'Times New Roman',serif;letter-spacing:.01em}
+.contact-button .number{font:500 10px/1.1 Georgia,'Times New Roman',serif;white-space:nowrap;color:var(--muted);letter-spacing:-.03em}
+.contact-button:focus-visible,.lang-btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+@media(max-width:390px){.card,.compact.card{padding:16px 14px 18px}.contact-buttons{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.contact-button{min-height:69px;flex-direction:row;gap:6px;padding:8px 6px}.contact-button svg{width:23px;height:23px}.contact-button .label-stack{display:flex;flex-direction:column;gap:2px;align-items:flex-start}.contact-button .brand{font-size:13px}.contact-button .number{font-size:11px}}
+@media(max-height:680px) and (min-aspect-ratio:6/5){.card,.compact.card{max-width:800px}.contact-button{min-height:72px}.contact-buttons{margin-top:5px}.role,.compact .role{margin-bottom:4px}}
+@media(max-height:650px) and (max-aspect-ratio:6/5){body{align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){.aurora,.name{animation:none}}
+</style>
+<style id="icons-only">
+.contact-buttons{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));justify-items:center;gap:10px;margin:12px 0 0}
+.contact-button{width:64px;height:64px;min-width:64px;min-height:64px;padding:0;display:flex;align-items:center;justify-content:center;border-radius:50%;gap:0;flex-direction:row}
+.contact-button svg{width:29px;height:29px;flex:none}
+@media(max-width:390px){.contact-buttons{grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}.contact-button{width:54px;height:54px;min-width:54px;min-height:54px;padding:0;flex-direction:row}.contact-button svg{width:26px;height:26px}}
+@media(max-width:320px){.contact-button{width:48px;height:48px;min-width:48px;min-height:48px}.contact-button svg{width:23px;height:23px}}
+</style>
+<style id="brand-icons-on-original-buttons">
+/* Retain the warm burgundy buttons; only the marks use brand colors. */
+.contact-button svg{width:37px;height:37px}
+@media(max-width:390px){.contact-button svg{width:33px;height:33px}}
+@media(max-width:320px){.contact-button svg{width:29px;height:29px}}
+</style>
+<style id="original-site-colors">
+:root{--ink:#0a0612;--wine:#43205c;--wine2:#6a3bff;--cream:#fff;--gold:#ffd9f4;--muted:#f0e3ff}
+html,body{background:#0a0612;color:#fff}
+.aurora{inset:-30%;filter:blur(70px);opacity:.55;background:radial-gradient(40% 40% at 25% 30%,#b14bff 0%,transparent 60%),radial-gradient(45% 45% at 80% 25%,#ff5db1 0%,transparent 60%),radial-gradient(50% 50% at 60% 85%,#6a3bff 0%,transparent 60%),radial-gradient(40% 40% at 15% 80%,#00d4ff 0%,transparent 60%);animation:drift 16s ease-in-out infinite alternate}
+.card,.compact.card{background:rgba(255,255,255,.09);backdrop-filter:blur(22px) saturate(140%);-webkit-backdrop-filter:blur(22px) saturate(140%);border-color:rgba(255,255,255,.3);box-shadow:0 30px 80px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.3)}
+.card:before{border-color:rgba(255,255,255,.2)}
+.lang-switch,.compact .lang-switch{border-bottom-color:rgba(255,255,255,.24)}
+.lang-btn,.compact .lang-btn{color:#fff;border-color:rgba(255,255,255,.55);background:linear-gradient(110deg,rgba(255,93,177,.25),rgba(106,59,255,.38))}
+.lang-btn:hover{background:linear-gradient(110deg,rgba(255,93,177,.45),rgba(106,59,255,.58));color:#fff}
+.lang-btn.active{color:#fff;border-color:rgba(255,255,255,.65);background:linear-gradient(95deg,#ff5db1,#b14bff 55%,#6a3bff);box-shadow:0 5px 18px rgba(177,75,255,.45),inset 0 1px 0 rgba(255,255,255,.4)}
+.eyebrow,.compact .eyebrow,.role,.compact .role,#i18n-limited,.compact #i18n-limited{color:#ffd9f4!important}
+.frame,.compact .frame{background:linear-gradient(135deg,rgba(255,255,255,.72),rgba(255,255,255,.08));box-shadow:0 22px 50px rgba(0,0,0,.5),inset 0 0 0 1px rgba(255,255,255,.4)}
+.name,.compact .name{background:linear-gradient(95deg,#ff8fd6,#c08bff 35%,#7ad6ff 60%,#ffd1f0);background-size:240% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 2px 6px rgba(177,75,255,.25);filter:drop-shadow(0 0 14px rgba(255,93,177,.38));animation:hue 6s linear infinite}
+.offer,.compact .offer{color:#ffe1f5!important;text-shadow:0 2px 14px rgba(255,93,177,.4)!important}
+.tagline,.compact .tagline{color:rgba(255,255,255,.92)}
+.contact-button{background:linear-gradient(95deg,#ff5db1,#b14bff 55%,#6a3bff);border-color:rgba(255,255,255,.7);box-shadow:0 5px 18px rgba(177,75,255,.45),inset 0 1px 0 rgba(255,255,255,.4)}
+.contact-button:hover{background:linear-gradient(95deg,#ff76bf,#bc62ff 55%,#8660ff);border-color:#fff;box-shadow:0 9px 22px rgba(177,75,255,.58),inset 0 1px 0 rgba(255,255,255,.4)}
+@media(prefers-reduced-motion:reduce){.aurora,.name{animation:none}}
+</style>
 </head>
 <body>
   <div class="aurora"></div>
@@ -179,11 +244,11 @@ body { height:100svh; height:100dvh; min-height:0; padding:max(12px,env(safe-are
     <p class="tagline" id="i18n-tagline">Düğün ve özel davetlerinize canlı keman eşliğinde zarafet katın</p>
     <div style="font-family:'Inter',Arial,sans-serif;font-size:clamp(10px,1.3vh,12px);letter-spacing:.2em;text-transform:uppercase;color:#ffd9f4;margin-bottom:clamp(6px,1.2vh,14px);" id="i18n-limited">✦ Tarihler Sınırlı ✦</div>
     <nav class="contact-buttons" aria-label="Sosyal medya ve WhatsApp">
-      <a class="contact-button" href="https://wa.me/905518096353" target="_blank" rel="noopener" aria-label="WhatsApp 1">WhatsApp 1</a>
-      <a class="contact-button" href="https://www.instagram.com/irke_violinist?igsh=MTB2Z3g5dmxsdG9vcw==" target="_blank" rel="noopener">Instagram</a>
-      <a class="contact-button" href="https://www.youtube.com/@irke_violin" target="_blank" rel="noopener">YouTube</a>
-      <a class="contact-button" href="https://wa.me/79377764979" target="_blank" rel="noopener" aria-label="WhatsApp 2">WhatsApp 2</a>
-    </nav>
+<a class="contact-button" href="https://wa.me/79377764979" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Россия, +7 937 776 49 79"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#25D366"/><path d="M13.5 35.5l2.2-7a12.2 12.2 0 1 1 4.1 4.2l-6.3 2.8Z" fill="none" stroke="#fff" stroke-width="2.7" stroke-linejoin="round"/><path d="M20.2 18.2c-.4-.9-.8-.9-1.2-.9h-1c-.4 0-1 .2-1.5.7s-1.9 1.9-1.9 4.6 2 5.4c.2.3 2.7 4.3 6.5 5.8 3.1 1.2 3.8 1 4.5.9.7-.1 2.3-1 2.6-2.1.3-1.1.3-2 .2-2.2-.1-.2-.4-.3-.8-.5l-2.7-1.3c-.4-.2-.7-.3-1 .2l-1.2 1.5c-.3.4-.6.4-1 .2-1.1-.6-2.4-1.1-3.7-2.3-1-1-1.8-2.1-2.1-2.6-.3-.5 0-.7.2-1l.8-1c.2-.3.3-.5.5-.8.1-.3.1-.6 0-.8l-1.2-2.9Z" fill="#fff" transform="translate(4 1) scale(.77)"/></svg></a>
+<a class="contact-button" href="https://www.instagram.com/irke_violinist?igsh=MTB2Z3g5dmxsdG9vcw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="ig-brand" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset=".28" stop-color="#FA7E1E"/><stop offset=".54" stop-color="#D62976"/><stop offset=".77" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient></defs><rect x="2" y="2" width="44" height="44" rx="12" fill="url(#ig-brand)"/><rect x="11" y="11" width="26" height="26" rx="8" fill="none" stroke="#fff" stroke-width="3.3"/><circle cx="24" cy="24" r="6.5" fill="none" stroke="#fff" stroke-width="3.3"/><circle cx="33.1" cy="14.9" r="2" fill="#fff"/></svg></a>
+<a class="contact-button" href="https://www.youtube.com/@irke_violin" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="2" y="9" width="44" height="30" rx="9" fill="#FF0033"/><path d="M20 17.2 32 24 20 30.8V17.2Z" fill="#fff"/></svg></a>
+<a class="contact-button" href="https://wa.me/905518096353" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Турция, +90 551 809 63 53"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#25D366"/><path d="M13.5 35.5l2.2-7a12.2 12.2 0 1 1 4.1 4.2l-6.3 2.8Z" fill="none" stroke="#fff" stroke-width="2.7" stroke-linejoin="round"/><path d="M20.2 18.2c-.4-.9-.8-.9-1.2-.9h-1c-.4 0-1 .2-1.5.7s-1.9 1.9-1.9 4.6 2 5.4c.2.3 2.7 4.3 6.5 5.8 3.1 1.2 3.8 1 4.5.9.7-.1 2.3-1 2.6-2.1.3-1.1.3-2 .2-2.2-.1-.2-.4-.3-.8-.5l-2.7-1.3c-.4-.2-.7-.3-1 .2l-1.2 1.5c-.3.4-.6.4-1 .2-1.1-.6-2.4-1.1-3.7-2.3-1-1-1.8-2.1-2.1-2.6-.3-.5 0-.7.2-1l.8-1c.2-.3.3-.5.5-.8.1-.3.1-.6 0-.8l-1.2-2.9Z" fill="#fff" transform="translate(4 1) scale(.77)"/></svg></a>
+</nav>
 </div></div></main>
 <script>
 
