@@ -251,6 +251,17 @@ html,body{background:var(--ink);color:var(--cream)}
 @media(prefers-reduced-motion:reduce){.aurora,.name{animation:none}}
 </style>
 <!-- Brand icon paths: Font Awesome Free 6.7.2, CC BY 4.0; https://fontawesome.com/license/free -->
+<style id="universal-fit">
+html{min-height:100%;overflow-x:hidden}
+body{width:100%;min-height:100vh;min-height:100svh;min-height:100dvh;height:auto;overflow-x:hidden;overflow-y:auto;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:max(12px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))}
+.card,.compact.card{width:100%;min-width:0;flex:0 0 auto;margin:auto 0;transform:none!important}
+.card-body,.portrait,.details{min-width:0}
+.frame,.frame video{max-width:100%}
+.name,.role,.offer,.tagline,#i18n-limited{overflow-wrap:break-word}
+@media(max-width:390px){.card,.compact.card{padding:14px 12px 16px}.lang-switch,.compact .lang-switch{gap:4px;margin-bottom:8px;padding-bottom:8px}.lang-btn,.compact .lang-btn{min-height:38px;padding:3px;font-size:12px}.eyebrow,.compact .eyebrow{margin-bottom:6px}.frame,.compact .frame{margin-bottom:8px}.frame video{height:clamp(155px,33svh,255px)}.name,.compact .name{font-size:clamp(40px,7svh,55px)}.role,.compact .role{margin-bottom:6px}.tagline,.compact .tagline{font-size:clamp(14px,2svh,16px);margin:4px 0 7px}.contact-buttons{margin-top:7px}}
+@media(max-height:720px) and (max-width:600px){body{padding-top:max(8px,env(safe-area-inset-top));padding-bottom:max(8px,env(safe-area-inset-bottom))}.card,.compact.card{padding-top:12px;padding-bottom:14px}.frame video{height:clamp(145px,30svh,260px)}.name,.compact .name{font-size:clamp(40px,7svh,58px)}.role,.compact .role{margin-bottom:5px}.tagline,.compact .tagline{font-size:clamp(14px,2svh,16px);margin:4px 0 7px}.contact-buttons{margin-top:6px}}
+@media(max-height:480px) and (min-width:601px){body{padding-top:max(8px,env(safe-area-inset-top));padding-bottom:max(8px,env(safe-area-inset-bottom))}.card,.compact.card{padding-top:10px;padding-bottom:10px}.lang-switch,.compact .lang-switch{margin-bottom:7px;padding-bottom:7px}.frame video{height:clamp(125px,48svh,210px)}.contact-buttons{margin-top:4px}.contact-button{width:48px;height:48px;min-width:48px;min-height:48px}.contact-button svg{width:28px;height:28px}}
+</style>
 </head>
 <body>
   <div class="aurora"></div>
@@ -309,19 +320,13 @@ addEventListener('load',function(){var v=document.querySelector('.frame video');
 window.fitCard=function(){
  var card=document.querySelector('.card'),media=document.querySelector('.frame img,.frame video');
  if(!card||!media)return;
- card.style.removeProperty('transform');
- card.classList.remove('compact');
  media.style.removeProperty('height');
  var bodyStyle=getComputedStyle(document.body);
- var viewport=Math.min(document.body.clientHeight,window.visualViewport?window.visualViewport.height:window.innerHeight);
+ var viewport=window.visualViewport?window.visualViewport.height:window.innerHeight;
  var budget=Math.max(1,viewport-parseFloat(bodyStyle.paddingTop)-parseFloat(bodyStyle.paddingBottom)-4);
- function shrinkPhoto(minHeight){
-   var excess=card.offsetHeight-budget;
-   if(excess>0)media.style.height=Math.max(minHeight,media.getBoundingClientRect().height-excess-2)+'px';
- }
- shrinkPhoto(110);
- if(card.offsetHeight>budget){
-   card.style.transform='scale('+Math.min(1,budget/card.offsetHeight)+')';
+ var excess=card.offsetHeight-budget;
+ if(excess>0&&viewport>=520){
+   media.style.height=Math.max(150,media.getBoundingClientRect().height-excess-2)+'px';
  }
 };
 addEventListener('resize',window.fitCard);
