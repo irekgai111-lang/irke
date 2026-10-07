@@ -3,18 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>IRKIA</title>
+<title>IRKIA · Live Violin</title>
+<link rel="canonical" href="https://irekgai111-lang.github.io/irke/">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://irkia-vizitka.irekgai111.chatgpt.site/">
+  <meta property="og:url" content="https://irekgai111-lang.github.io/irke/">
   <meta property="og:title" content="IRKIA">
-  <meta property="og:description" content="Davetinizi zirveye taşıyın. Düğün ve özel davetlerinize canlı keman eşliğinde zarafet katın.">
-  <meta property="og:image" content="https://irkia-vizitka.irekgai111.chatgpt.site/og.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:description" content="IRKIA — live violin for weddings and special events. Elegant music for your celebration.">
+  <meta property="og:image" content="https://irekgai111-lang.github.io/irke/irke-preview.png">
+  <meta property="og:image:width" content="1733">
+  <meta property="og:image:height" content="909">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="IRKIA">
-  <meta name="twitter:description" content="Davetinizi zirveye taşıyın — canlı keman eşliğinde zarafet.">
-  <meta name="twitter:image" content="https://irkia-vizitka.irekgai111.chatgpt.site/og.png">
+  <meta name="twitter:description" content="IRKIA — live violin for weddings and special events.">
+  <meta name="twitter:image" content="https://irekgai111-lang.github.io/irke/irke-preview.png">
 <style>
   *{ margin:0; padding:0; box-sizing:border-box; }
   body{
@@ -312,6 +313,18 @@ function setLang(lang){
   document.querySelectorAll('.lang-btn').forEach(function(b){var selected=b.dataset.lang===lang;b.classList.toggle('active',selected);b.setAttribute('aria-pressed',String(selected));});
   if(window.fitCard) requestAnimationFrame(window.fitCard);
 }
+
+
+// Use the visitor's language while preserving the four manual language buttons.
+(function(){
+  var requested=new URLSearchParams(location.search).get('lang');
+  var locale=(navigator.language||'').toLowerCase();
+  var initial=i18n[requested] ? requested :
+    locale.startsWith('tt') ? 'tt' :
+    locale.startsWith('ru') ? 'ru' :
+    locale.startsWith('tr') ? 'tr' : 'en';
+  setLang(initial);
+})();
 
 addEventListener('load',function(){var v=document.querySelector('.frame video');if(!v)return;v.pause();try{v.currentTime=0;}catch(e){}setTimeout(function(){var p=v.play();if(p&&p.catch)p.catch(function(){});},2000);});
 </script>
