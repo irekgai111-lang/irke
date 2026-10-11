@@ -262,6 +262,41 @@ body{width:100%;min-height:100vh;min-height:100svh;min-height:100dvh;height:auto
 @media(max-height:720px) and (max-width:600px){body{padding-top:max(8px,env(safe-area-inset-top));padding-bottom:max(8px,env(safe-area-inset-bottom))}.card,.compact.card{padding-top:12px;padding-bottom:14px}.frame video{height:clamp(145px,30svh,260px)}.name,.compact .name{font-size:clamp(40px,7svh,58px)}.role,.compact .role{margin-bottom:5px}.tagline,.compact .tagline{font-size:clamp(14px,2svh,16px);margin:4px 0 7px}.contact-buttons{margin-top:6px}}
 @media(max-height:480px) and (min-width:601px){body{padding-top:max(8px,env(safe-area-inset-top));padding-bottom:max(8px,env(safe-area-inset-bottom))}.card,.compact.card{padding-top:10px;padding-bottom:10px}.lang-switch,.compact .lang-switch{margin-bottom:7px;padding-bottom:7px}.frame video{height:clamp(125px,48svh,210px)}.contact-buttons{margin-top:4px}.contact-button{width:48px;height:48px;min-width:48px;min-height:48px}.contact-button svg{width:28px;height:28px}}
 </style>
+<style id="instagram-inapp-fit">
+/* Instagram's in-app browser exposes less height than the physical screen.
+   The JS below writes the real Visual Viewport height into --app-height and
+   scales the complete card, so every control stays visible without scrolling. */
+html{height:100%;min-height:0;overflow:hidden}
+body{
+  height:var(--app-height,100dvh);
+  min-height:0;
+  overflow:hidden;
+  justify-content:center;
+  padding:max(8px,env(safe-area-inset-top)) max(8px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));
+}
+.card,.compact.card{
+  margin:0;
+  transform:scale(var(--fit-scale,1))!important;
+  transform-origin:center center;
+  will-change:transform;
+}
+@media(max-width:600px) and (max-height:720px){
+  .card,.compact.card{padding:10px 12px 12px}
+  .lang-switch,.compact .lang-switch{margin-bottom:6px;padding-bottom:6px}
+  .lang-btn,.compact .lang-btn{min-height:34px;font-size:11px}
+  .eyebrow,.compact .eyebrow{font-size:10px;margin-bottom:4px}
+  .frame,.compact .frame{margin-bottom:5px}
+  .frame video{height:clamp(120px,26svh,185px)}
+  .name,.compact .name{font-size:clamp(36px,6.5svh,48px);margin:1px 0 2px}
+  .role,.compact .role{font-size:11px;margin-bottom:3px}
+  .offer,.compact .offer{font-size:clamp(18px,3svh,23px)!important;margin:2px 0!important}
+  .tagline,.compact .tagline{font-size:13px;line-height:1.25;margin:3px 0 5px}
+  #i18n-limited,.compact #i18n-limited{font-size:9px!important;margin-bottom:5px!important}
+  .contact-buttons{margin-top:4px}
+  .contact-button{width:48px;height:48px;min-width:48px;min-height:48px}
+  .contact-button svg{width:29px;height:29px}
+}
+</style>
 </head>
 <body>
   <div class="aurora"></div>
@@ -316,18 +351,25 @@ function setLang(lang){
 addEventListener('load',function(){var v=document.querySelector('.frame video');if(!v)return;v.pause();try{v.currentTime=0;}catch(e){}setTimeout(function(){var p=v.play();if(p&&p.catch)p.catch(function(){});},2000);});
 </script>
 <script>
-// Adjust the photo instead of scaling/rasterizing the text.
+// Fit the whole card to the actual visible area of in-app browsers.
 window.fitCard=function(){
- var card=document.querySelector('.card'),media=document.querySelector('.frame img,.frame video');
- if(!card||!media)return;
- media.style.removeProperty('height');
- var bodyStyle=getComputedStyle(document.body);
- var viewport=window.visualViewport?window.visualViewport.height:window.innerHeight;
- var budget=Math.max(1,viewport-parseFloat(bodyStyle.paddingTop)-parseFloat(bodyStyle.paddingBottom)-4);
- var excess=card.offsetHeight-budget;
- if(excess>0&&viewport>=520){
-   media.style.height=Math.max(150,media.getBoundingClientRect().height-excess-2)+'px';
- }
+ var card=document.querySelector('.card');
+ if(!card)return;
+ var viewport=window.visualViewport;
+ var viewportHeight=Math.round(viewport?viewport.height:window.innerHeight);
+ var viewportWidth=Math.round(viewport?viewport.width:window.innerWidth);
+ document.documentElement.style.setProperty('--app-height',viewportHeight+'px');
+ card.style.setProperty('--fit-scale','1');
+ requestAnimationFrame(function(){
+   var bodyStyle=getComputedStyle(document.body);
+   var availableHeight=Math.max(1,viewportHeight-parseFloat(bodyStyle.paddingTop)-parseFloat(bodyStyle.paddingBottom)-4);
+   var availableWidth=Math.max(1,viewportWidth-parseFloat(bodyStyle.paddingLeft)-parseFloat(bodyStyle.paddingRight)-4);
+   var naturalHeight=card.scrollHeight;
+   var naturalWidth=card.offsetWidth;
+   var scale=Math.min(1,availableHeight/naturalHeight,availableWidth/naturalWidth);
+   if(scale<1)scale=Math.max(.62,scale*.985);
+   card.style.setProperty('--fit-scale',scale.toFixed(4));
+ });
 };
 addEventListener('resize',window.fitCard);
 addEventListener('load',window.fitCard);
