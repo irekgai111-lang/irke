@@ -76,6 +76,8 @@
     .album-card img{position:absolute;inset:0;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .4s ease}
     .album-card:before{content:"";position:absolute;z-index:1;inset:30% 0 0;background:linear-gradient(transparent,rgba(12,11,10,.88))}
     .album-card:hover img{transform:scale(1.035);filter:saturate(1.06)}
+    .album-card[data-album="nikah"] img{object-fit:contain;background:#0b0b0a;transform:none}
+    .album-card[data-album="nikah"]:hover img{transform:none;filter:saturate(1.03)}
     .album-card:focus-visible{outline:3px solid var(--wine);outline-offset:4px}
     .album-copy{position:absolute;z-index:2;left:24px;right:24px;bottom:24px}
     .album-index{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);margin-bottom:12px;font-weight:700}
@@ -202,8 +204,8 @@
     .gallery-heading strong{display:block;font-family:var(--serif);font-size:21px;font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .gallery-heading span{display:block;color:rgba(255,255,255,.7);font-size:11px;letter-spacing:.11em;text-transform:uppercase;margin-top:3px;font-weight:600}
     .gallery-close{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:transparent;color:white;font-size:28px;line-height:1;cursor:pointer;flex:0 0 auto}
-    .gallery-stage{position:relative;min-height:0;display:grid;place-items:center;overflow:hidden;touch-action:pan-y}
-    .gallery-image{width:100%;height:100%;object-fit:contain;padding:18px 74px;user-select:none;-webkit-user-drag:none;animation:gallery-in .28s ease both}
+    .gallery-stage{position:relative;min-height:0;display:grid;place-items:center;overflow:hidden;touch-action:pan-y;padding:18px 74px}
+    .gallery-image{width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain!important;padding:0;user-select:none;-webkit-user-drag:none;animation:gallery-in .28s ease both}
     .gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:rgba(8,8,7,.45);color:white;font-size:27px;cursor:pointer;backdrop-filter:blur(8px)}
     .gallery-prev{left:18px}.gallery-next{right:18px}
     .gallery-bottom{min-height:68px;padding:12px 22px max(12px,env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid rgba(255,255,255,.16);font-size:13px;color:rgba(255,255,255,.78);font-weight:500}
@@ -234,7 +236,7 @@
       .reviews-layout{grid-template-columns:1fr;gap:34px}.review-card{padding:23px 20px}.review-card blockquote{padding-right:22px;font-size:24px}.review-proof{position:static;gap:8px}.review-shot{border-radius:16px}.review-shot span{font-size:9px;padding:8px}
       .closing{padding:76px 22px 100px}.legal-center{padding:58px 20px 72px}.legal-head{display:block}.legal-intro{margin-top:18px}.legal-doc summary{grid-template-columns:28px 1fr auto;gap:10px}.legal-body{padding-left:38px}.footer{padding:24px 20px 94px;display:block}.footer-links{justify-content:flex-start;margin-top:12px}.legal-note{margin-top:14px}
       .mobile-cta{display:block;position:fixed;z-index:12;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));background:#f1dfca;color:var(--ink);border:0;border-radius:999px;min-height:54px;font-weight:600;box-shadow:0 12px 38px rgba(0,0,0,.3)}
-      .gallery-top{height:58px;padding:0 14px}.gallery-heading strong{font-size:18px}.gallery-image{padding:8px}.gallery-nav{width:42px;height:42px;top:auto;bottom:14px}.gallery-prev{left:14px}.gallery-next{right:14px}.gallery-bottom{min-height:68px;padding:12px 68px max(12px,env(safe-area-inset-bottom));justify-content:center}.gallery-caption{display:none}.gallery-counter{text-align:center}.gallery-close{width:38px;height:38px}
+      .gallery-top{height:58px;padding:0 14px}.gallery-heading strong{font-size:18px}.gallery-stage{padding:8px}.gallery-image{width:auto;height:auto;max-width:100%;max-height:100%;padding:0}.gallery-nav{width:42px;height:42px;top:auto;bottom:14px}.gallery-prev{left:14px}.gallery-next{right:14px}.gallery-bottom{min-height:68px;padding:12px 68px max(12px,env(safe-area-inset-bottom));justify-content:center}.gallery-caption{display:none}.gallery-counter{text-align:center}.gallery-close{width:38px;height:38px}
     }
   </style>
 </head>
