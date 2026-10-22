@@ -72,6 +72,7 @@
     .album-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
     .album-card{grid-column:span 2;border:0;padding:0;background:#d8cec1;color:white;text-align:left;position:relative;overflow:hidden;min-height:560px;cursor:pointer;isolation:isolate}
     .album-card:nth-child(n+4){grid-column:span 3;min-height:620px}
+    .album-card.featured{grid-column:span 6;min-height:700px}
     .album-card img{position:absolute;inset:0;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .4s ease}
     .album-card:before{content:"";position:absolute;z-index:1;inset:30% 0 0;background:linear-gradient(transparent,rgba(12,11,10,.88))}
     .album-card:hover img{transform:scale(1.035);filter:saturate(1.06)}
@@ -224,7 +225,7 @@
       .hero-foot{display:none}.vertical-note{display:none}.actions{margin-top:24px}.button{min-height:49px;padding:0 18px;font-size:13px}
       .intro{grid-template-columns:1fr;gap:18px}.intro-copy{font-size:31px}
       .proofs{grid-template-columns:1fr}.proof{padding:19px 20px;border-right:0;border-bottom:1px solid var(--line)}.proof:last-child{border-bottom:0}.proof strong{font-size:31px}.proof span{font-size:11px}
-      .album-grid{grid-template-columns:1fr;gap:9px}.album-card,.album-card:nth-child(n+4){grid-column:1;min-height:66svh}.album-card:nth-child(2){min-height:58svh}.album-copy{left:18px;right:18px;bottom:20px}.album-description{font-size:14px}.album-index{font-size:11px}.album-open{font-size:12px}
+      .album-grid{grid-template-columns:1fr;gap:9px}.album-card,.album-card:nth-child(n+4),.album-card.featured{grid-column:1;min-height:66svh}.album-card:nth-child(2){min-height:58svh}.album-copy{left:18px;right:18px;bottom:20px}.album-description{font-size:14px}.album-index{font-size:11px}.album-open{font-size:12px}
       .service{grid-template-columns:34px 1fr;gap:14px;padding:20px 0}.service p{grid-column:2;text-align:left;font-size:14px}
       .section-cta{display:block}.section-cta .button{margin-top:20px;width:100%}
       .price-grid{grid-template-columns:1fr}.price-card{min-height:190px}.extras{padding:22px 18px}.extras-grid{grid-template-columns:1fr 1fr}.extra:last-child{grid-column:1/-1;min-height:92px}.booking-box{grid-template-columns:1fr;padding:24px 20px;gap:20px}.booking-list{grid-template-columns:1fr}
@@ -265,8 +266,8 @@
     </section>
 
     <div class="proofs" aria-label="О портфолио и работе">
-      <div class="proof"><strong>7</strong><span>фотоисторий в моём портфолио</span></div>
-      <div class="proof"><strong>31</strong><span>отобранный мной кадр</span></div>
+      <div class="proof"><strong>8</strong><span>фотоисторий в моём портфолио</span></div>
+      <div class="proof"><strong>35</strong><span>отобранных мной кадров</span></div>
       <div class="proof"><strong>НПД</strong><span>я самозанятая · выдаю чек</span></div>
     </div>
 
@@ -316,7 +317,7 @@
     </section>
 
     <section class="section portfolio" id="portfolio">
-      <div class="section-head"><div><span class="eyebrow">Мои избранные серии</span><h2>Истории, которые<br>хочется прожить</h2></div><p class="section-note">Я собрала здесь семь разных историй: свадьбы, женские портреты, семейную нежность и кадры, которые хочется пересматривать.</p></div>
+      <div class="section-head"><div><span class="eyebrow">Мои избранные серии</span><h2>Истории, которые<br>хочется прожить</h2></div><p class="section-note">Я собрала здесь восемь разных историй: свадьбы, национальные традиции, женские портреты, семейную нежность и кадры, которые хочется пересматривать.</p></div>
       <div class="album-grid">
         <button class="album-card" data-album="rain" aria-label="Открыть альбом Город после дождя"><img loading="lazy" src="assets/albums/rain-city-01.jpg" alt="Свадебная пара целуется под прозрачным зонтом"><span class="album-copy"><span class="album-index">Свадебная история · 5 кадров</span><strong class="album-title">Город после дождя</strong><span class="album-description">Архитектура, прозрачный зонт и чувство, которому не мешает погода.</span><span class="album-open"><span>Открыть альбом</span><span>→</span></span></span></button>
         <button class="album-card" data-album="onlyUs" aria-label="Открыть альбом Только мы"><img loading="lazy" src="assets/albums/only-us-02.jpg" alt="Свадебная пара под фатой"><span class="album-copy"><span class="album-index">Love story · 5 кадров</span><strong class="album-title">Только мы</strong><span class="album-description">Нежность, лёгкость и маленькие паузы большого свадебного дня.</span><span class="album-open"><span>Открыть альбом</span><span>→</span></span></span></button>
@@ -325,6 +326,7 @@
         <button class="album-card" data-album="lemon" aria-label="Открыть альбом Лимонное лето"><img loading="lazy" src="assets/albums/lemon-summer-01.jpg" alt="Девушка с лимонами в плетёной сумке"><span class="album-copy"><span class="album-index">Летняя история · 3 кадра</span><strong class="album-title">Лимонное лето</strong><span class="album-description">Солнечный свет, белое платье и яркие лимоны — свежая история с ароматом лета.</span><span class="album-open"><span>Открыть альбом</span><span>→</span></span></span></button>
         <button class="album-card" data-album="mother" aria-label="Открыть альбом Мама и малыш"><img loading="lazy" src="assets/albums/mother-child-01.jpg" alt="Улыбающаяся мама держит малыша"><span class="album-copy"><span class="album-index">Семейная история · 5 кадров</span><strong class="album-title">Мама и малыш.<br>Самое важное</strong><span class="album-description">Смех, прикосновения и тихая нежность — память о времени, которое проходит особенно быстро.</span><span class="album-open"><span>Открыть альбом</span><span>→</span></span></span></button>
         <button class="album-card" data-album="character" aria-label="Открыть альбом Грани характера"><img loading="lazy" src="assets/albums/character-01.jpg" alt="Редакционный портрет на красном фоне"><span class="album-copy"><span class="album-index">Editorial portrait · 5 кадров</span><strong class="album-title">Грани характера</strong><span class="album-description">Красный цвет, зеркало, мягкий свет и пять выразительных состояний одной героини.</span><span class="album-open"><span>Открыть альбом</span><span>→</span></span></span></button>
+        <button class="album-card featured" data-album="nikah" aria-label="Открыть альбом Никах — свадьба с национальным колоритом"><img loading="lazy" src="assets/albums/nikah-02.jpg" alt="Молодая пара в национальных свадебных костюмах во время никаха"><span class="album-copy"><span class="album-index">Никах · 4 кадра</span><strong class="album-title">Никах — свадьба<br>с национальным колоритом</strong><span class="album-description">Нежность никаха, национальные костюмы, красные розы и свет у мечети — история о традиции, любви и новом начале.</span><span class="album-open"><span>Открыть альбом</span><span>→</span></span></span></button>
       </div>
     </section>
 
@@ -492,7 +494,8 @@
       rococo:{title:'Жемчуг и рококо',kind:'Fashion story',caption:'Современная героиня в эстетике рококо.',images:['assets/albums/rococo-01.jpg','assets/albums/rococo-02.jpg','assets/albums/rococo-03.jpg']},
       lemon:{title:'Лимонное лето',kind:'Летняя история',caption:'Солнечная серия с лимонами и лёгким настроением.',images:['assets/albums/lemon-summer-01.jpg','assets/albums/lemon-summer-02.jpg','assets/albums/lemon-summer-03.jpg']},
       mother:{title:'Мама и малыш. Самое важное',kind:'Семейная история',caption:'Пять настоящих моментов любви и близости.',images:['assets/albums/mother-child-01.jpg','assets/albums/mother-child-02.jpg','assets/albums/mother-child-03.jpg','assets/albums/mother-child-04.jpg','assets/albums/mother-child-05.jpg']},
-      character:{title:'Грани характера',kind:'Editorial portrait',caption:'Пять настроений одной выразительной героини.',images:['assets/albums/character-01.jpg','assets/albums/character-02.jpg','assets/albums/character-03.jpg','assets/albums/character-04.jpg','assets/albums/character-05.jpg']}
+      character:{title:'Грани характера',kind:'Editorial portrait',caption:'Пять настроений одной выразительной героини.',images:['assets/albums/character-01.jpg','assets/albums/character-02.jpg','assets/albums/character-03.jpg','assets/albums/character-04.jpg','assets/albums/character-05.jpg']},
+      nikah:{title:'Никах — свадьба с национальным колоритом',kind:'Никах · национальная свадьба',caption:'Четыре момента одной истории о любви, традиции и новом начале.',images:['assets/albums/nikah-01.jpg','assets/albums/nikah-02.jpg','assets/albums/nikah-03.jpg','assets/albums/nikah-04.jpg']}
     };
     const gallery=document.getElementById('gallery'),galleryImage=document.getElementById('gallery-image');
     let activeAlbum=null,activeIndex=0,touchStartX=0;
