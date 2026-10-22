@@ -102,6 +102,13 @@
     .price-value{display:flex;align-items:end;justify-content:space-between;gap:12px;padding-top:22px;margin-top:22px;border-top:1px solid var(--line)}
     .price-value strong{font-family:var(--serif);font-size:37px;font-weight:400;color:var(--wine)}
     .price-value span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#615a52;font-weight:700}
+    .extras{margin-top:18px;border:1px solid var(--line);background:#eadfd3;padding:26px}
+    .extras h3{font-family:var(--serif);font-size:30px;font-weight:400;margin-bottom:20px}
+    .extras-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(24,23,19,.16)}
+    .extra{background:#eadfd3;padding:17px 14px;min-height:108px;display:flex;flex-direction:column;justify-content:space-between;gap:14px}
+    .extra span{font-size:12px;line-height:1.45;color:#554f48;font-weight:600}
+    .extra strong{font-family:var(--serif);font-size:25px;font-weight:400;color:var(--wine)}
+    .extras-note{margin:18px 0 0;color:#5c554d;font-size:12px;line-height:1.65;font-weight:500}
     .booking-box{margin-top:18px;padding:28px;background:var(--ink);color:white;display:grid;grid-template-columns:minmax(220px,.72fr) 1.28fr;gap:36px}
     .booking-box h3{font-family:var(--serif);font-size:33px;font-weight:400;margin:0}
     .booking-list{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin:0;padding:0;list-style:none;color:rgba(255,255,255,.82);font-size:14px;line-height:1.55}
@@ -118,6 +125,23 @@
     .step b{display:block;font-family:var(--serif);font-size:34px;font-weight:400;color:var(--wine);margin-bottom:34px}
     .step h3{font-size:16px;margin-bottom:10px}
     .step p{font-size:14px;line-height:1.68;color:#49443e;margin:0;font-weight:500}
+
+    .reviews{background:#211f1b;color:white;overflow:hidden}
+    .reviews .section-note{color:rgba(255,255,255,.72)}
+    .reviews-layout{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(340px,.92fr);gap:52px;align-items:start}
+    .review-quotes{display:grid;gap:14px}
+    .review-card{padding:28px 30px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.045);position:relative;transition:.25s ease}
+    .review-card:hover{transform:translateX(5px);border-color:rgba(217,184,141,.52);background:rgba(255,255,255,.07)}
+    .review-card:before{content:"“";position:absolute;right:20px;top:2px;font-family:var(--serif);font-size:78px;line-height:1;color:rgba(217,184,141,.22)}
+    .review-card blockquote{margin:0;padding-right:34px;font-family:var(--serif);font-size:clamp(22px,2.6vw,32px);line-height:1.33;color:#f4eadf}
+    .review-card footer{margin-top:18px;color:#caa77e;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+    .review-proof{display:grid;grid-template-columns:1fr 1fr;gap:12px;position:sticky;top:18px}
+    .review-shot{display:block;aspect-ratio:9/16;overflow:hidden;border-radius:22px;background:#111;border:1px solid rgba(255,255,255,.18);position:relative}
+    .review-shot img{transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+    .review-shot:hover img{transform:scale(1.025)}
+    .review-shot span{position:absolute;left:12px;right:12px;bottom:12px;padding:10px 12px;border-radius:999px;background:rgba(12,11,10,.72);backdrop-filter:blur(10px);color:white;text-align:center;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+    .review-source-note{grid-column:1/-1;margin:4px 0 0;color:rgba(255,255,255,.58);font-size:12px;line-height:1.6;text-align:center}
+
     .faq{background:#f4efe7}
     .faq-list{border-top:1px solid var(--line)}
     .faq-item{border-bottom:1px solid var(--line)}
@@ -203,9 +227,10 @@
       .album-grid{grid-template-columns:1fr;gap:9px}.album-card,.album-card:nth-child(n+4){grid-column:1;min-height:66svh}.album-card:nth-child(2){min-height:58svh}.album-copy{left:18px;right:18px;bottom:20px}.album-description{font-size:14px}.album-index{font-size:11px}.album-open{font-size:12px}
       .service{grid-template-columns:34px 1fr;gap:14px;padding:20px 0}.service p{grid-column:2;text-align:left;font-size:14px}
       .section-cta{display:block}.section-cta .button{margin-top:20px;width:100%}
-      .price-grid{grid-template-columns:1fr}.price-card{min-height:190px}.booking-box{grid-template-columns:1fr;padding:24px 20px;gap:20px}.booking-list{grid-template-columns:1fr}
+      .price-grid{grid-template-columns:1fr}.price-card{min-height:190px}.extras{padding:22px 18px}.extras-grid{grid-template-columns:1fr 1fr}.extra:last-child{grid-column:1/-1;min-height:92px}.booking-box{grid-template-columns:1fr;padding:24px 20px;gap:20px}.booking-list{grid-template-columns:1fr}
       .about{grid-template-columns:1fr;gap:30px}.about-quote{font-size:39px}
       .steps{grid-template-columns:1fr 1fr}.step{min-height:210px;padding:22px 18px}.step b{margin-bottom:24px}.step p{font-size:13px}
+      .reviews-layout{grid-template-columns:1fr;gap:34px}.review-card{padding:23px 20px}.review-card blockquote{padding-right:22px;font-size:24px}.review-proof{position:static;gap:8px}.review-shot{border-radius:16px}.review-shot span{font-size:9px;padding:8px}
       .closing{padding:76px 22px 100px}.legal-center{padding:58px 20px 72px}.legal-head{display:block}.legal-intro{margin-top:18px}.legal-doc summary{grid-template-columns:28px 1fr auto;gap:10px}.legal-body{padding-left:38px}.footer{padding:24px 20px 94px;display:block}.footer-links{justify-content:flex-start;margin-top:12px}.legal-note{margin-top:14px}
       .mobile-cta{display:block;position:fixed;z-index:12;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));background:#f1dfca;color:var(--ink);border:0;border-radius:999px;min-height:54px;font-weight:600;box-shadow:0 12px 38px rgba(0,0,0,.3)}
       .gallery-top{height:58px;padding:0 14px}.gallery-heading strong{font-size:18px}.gallery-image{padding:8px}.gallery-nav{width:42px;height:42px;top:auto;bottom:14px}.gallery-prev{left:14px}.gallery-next{right:14px}.gallery-bottom{min-height:68px;padding:12px 68px max(12px,env(safe-area-inset-bottom));justify-content:center}.gallery-caption{display:none}.gallery-counter{text-align:center}.gallery-close{width:38px;height:38px}
@@ -257,7 +282,7 @@
     </section>
 
     <section class="section pricing" id="prices">
-      <div class="section-head"><div><span class="eyebrow">Стоимость</span><h2>Выберите свой<br>формат съёмки</h2></div><p class="section-note">Продолжительность каждого указанного формата — 1 час. Аренда студии оплачивается отдельно.</p></div>
+      <div class="section-head"><div><span class="eyebrow">Стоимость</span><h2>Выберите свой<br>формат съёмки</h2></div><p class="section-note">Продолжительность каждого указанного формата — 1 час. Стоимость указана в долларах США.</p></div>
       <div class="price-grid">
         <article class="price-card"><div><h3>Индивидуальная</h3><p>Личная фотосессия с помощью в выборе образа, движениях и позах.</p></div><div class="price-value"><strong>$120</strong><span>1 час</span></div></article>
         <article class="price-card"><div><h3>Парная / Love story</h3><p>История для двоих — живая, близкая и без лишней постановки.</p></div><div class="price-value"><strong>$150</strong><span>1 час</span></div></article>
@@ -266,13 +291,24 @@
         <article class="price-card"><div><h3>Утро невесты</h3><p>Детали, ожидание и портреты перед началом свадебного дня.</p></div><div class="price-value"><strong>$170</strong><span>1 час</span></div></article>
         <article class="price-card"><div><h3>Сборы жениха</h3><p>Стильная мужская серия, детали образа и атмосфера подготовки.</p></div><div class="price-value"><strong>$150</strong><span>1 час</span></div></article>
       </div>
+      <div class="extras">
+        <h3>Дополнительно</h3>
+        <div class="extras-grid">
+          <div class="extra"><span>Дополнительные 30 минут</span><strong>$60</strong></div>
+          <div class="extra"><span>Дополнительный час</span><strong>от $100</strong></div>
+          <div class="extra"><span>Выезд за город</span><strong>от $40</strong></div>
+          <div class="extra"><span>Дополнительная ретушь</span><strong>$7 / кадр</strong></div>
+          <div class="extra"><span>Срочная обработка</span><strong>+30%</strong></div>
+        </div>
+        <p class="extras-note">Студия, платные локации и услуги команды оплачиваются отдельно. Оплата — по согласованному курсу.</p>
+      </div>
       <div class="booking-box">
         <h3>Что входит и как проходит бронирование</h3>
         <ul class="booking-list">
           <li>От 50 до 70 исходных фотографий</li>
           <li>10 фотографий в обработке</li>
           <li>Готовность от 3 до 10 дней</li>
-          <li>Предоплата — 50%</li>
+          <li>Предоплата — 30%</li>
           <li>Один бесплатный перенос при уведомлении минимум за 3 дня</li>
           <li>При отмене за 7 и более дней — полный возврат предоплаты</li>
         </ul>
@@ -299,6 +335,40 @@
         <article class="step"><b>02</b><h3>Готовимся</h3><p>Я помогаю подобрать идею, одежду, место или студию и собрать референсы.</p></article>
         <article class="step"><b>03</b><h3>Снимаем</h3><p>Я не тороплю вас и во время съёмки помогаю с движением и позами.</p></article>
         <article class="step"><b>04</b><h3>Получаете историю</h3><p>Я отбираю готовые фотографии в цельную серию, которую вам захочется пересматривать.</p></article>
+      </div>
+    </section>
+
+    <section class="section reviews" id="reviews">
+      <div class="section-head">
+        <div><span class="eyebrow">Отзывы после съёмок</span><h2>Говорят мои музы</h2></div>
+        <p class="section-note">Для меня важны не только красивые кадры, но и то, как вы чувствуете себя в процессе.</p>
+      </div>
+      <div class="reviews-layout">
+        <div class="review-quotes">
+          <article class="review-card">
+            <blockquote>Фото получились просто вау. Съёмка прошла очень легко и приятно. Очень рекомендую, если хотите красивые результаты и классную атмосферу.</blockquote>
+            <footer>Отзыв после индивидуальной съёмки</footer>
+          </article>
+          <article class="review-card">
+            <blockquote>Я так довольна сегодняшней фотосессией — она превзошла все мои ожидания! А главное, как быстро всё было готово.</blockquote>
+            <footer>Отзыв после творческой съёмки</footer>
+          </article>
+          <article class="review-card">
+            <blockquote>Было очень весело — мы даже забыли, что все эмоции снимают на камеру. Получили чистый кайф, а фотографии хочется выложить все.</blockquote>
+            <footer>Отзыв после съёмки пары</footer>
+          </article>
+        </div>
+        <div class="review-proof" aria-label="Оригиналы отзывов клиентов">
+          <a class="review-shot" href="assets/reviews/review-story-01.jpg" target="_blank" rel="noopener" aria-label="Открыть первый оригинал отзыва">
+            <img loading="lazy" src="assets/reviews/review-story-01.jpg" alt="Отзыв клиента о лёгкой съёмке, красивом результате и приятной атмосфере">
+            <span>Открыть оригинал</span>
+          </a>
+          <a class="review-shot" href="assets/reviews/review-story-02.jpg" target="_blank" rel="noopener" aria-label="Открыть второй оригинал отзывов">
+            <img loading="lazy" src="assets/reviews/review-story-02.jpg" alt="Коллаж с отзывами клиентов после фотосессий">
+            <span>Открыть оригинал</span>
+          </a>
+          <p class="review-source-note">Тексты сохранены по смыслу, оригинальные сообщения можно открыть нажатием.</p>
+        </div>
       </div>
     </section>
 
@@ -346,11 +416,12 @@
         <details class="legal-doc">
           <summary><span class="legal-num">02</span><span class="legal-title">Условия оказания фотоуслуг</span><span class="legal-toggle">+</span></summary>
           <div class="legal-body">
-            <p>Продолжительность указанных форматов — 1 час. Вы получаете от 50 до 70 исходных фотографий и 10 фотографий в обработке. Срок готовности — от 3 до 10 дней. Аренда студии оплачивается отдельно.</p>
+            <p>Продолжительность указанных форматов — 1 час. Вы получаете от 50 до 70 исходных фотографий и 10 фотографий в обработке. Срок готовности — от 3 до 10 дней. Студия, платные локации и услуги команды оплачиваются отдельно.</p>
             <ul>
-              <li>Для бронирования даты вносится предоплата 50%.</li>
+              <li>Для бронирования даты вносится предоплата 30%. Условия согласуются до оплаты.</li>
               <li>Один перенос даты — бесплатно при уведомлении минимум за 3 дня.</li>
               <li>При отмене за 7 и более дней предоплата возвращается полностью.</li>
+              <li>Стоимость указана в долларах США. Оплата производится по согласованному курсу.</li>
               <li>Дополнительные услуги выполняются только после отдельного согласования.</li>
             </ul>
             <p>Право потребителя на отказ предусмотрено <a class="legal-source" href="https://www.consultant.ru/document/cons_doc_LAW_305/758e2cfdf136a621c8f66dcb3372b772c7b5e6e8/" target="_blank" rel="noopener">статьёй 32 Закона о защите прав потребителей</a>.</p>
