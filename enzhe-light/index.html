@@ -139,12 +139,6 @@
     .review-card blockquote{margin:0;padding-right:34px;font-family:var(--serif);font-size:clamp(20px,2.2vw,29px);line-height:1.36;color:#f4eadf}
     .review-card footer{display:flex;align-items:center;gap:13px;margin-top:auto;padding-top:24px;color:#caa77e;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
     .review-avatar{width:64px;height:64px;flex:0 0 64px;border-radius:50%;object-fit:cover;object-position:center;border:2px solid rgba(255,255,255,.72);box-shadow:0 8px 24px rgba(0,0,0,.2)}
-    .review-proof{display:grid;grid-template-columns:repeat(2,minmax(0,320px));justify-content:center;gap:12px;position:static}
-    .review-shot{display:block;aspect-ratio:9/16;overflow:hidden;border-radius:22px;background:#111;border:1px solid rgba(255,255,255,.18);position:relative}
-    .review-shot img{transition:transform .55s cubic-bezier(.2,.7,.2,1)}
-    .review-shot:hover img{transform:scale(1.025)}
-    .review-shot span{position:absolute;left:12px;right:12px;bottom:12px;padding:10px 12px;border-radius:999px;background:rgba(12,11,10,.72);backdrop-filter:blur(10px);color:white;text-align:center;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
-    .review-source-note{grid-column:1/-1;margin:4px 0 0;color:rgba(255,255,255,.58);font-size:12px;line-height:1.6;text-align:center}
 
     .faq{background:#f4efe7}
     .faq-list{border-top:1px solid var(--line)}
@@ -234,7 +228,7 @@
       .price-grid{grid-template-columns:1fr}.price-card{min-height:190px}.extras{padding:22px 18px}.extras-grid{grid-template-columns:1fr 1fr}.extra:last-child{grid-column:1/-1;min-height:92px}.booking-box{grid-template-columns:1fr;padding:24px 20px;gap:20px}.booking-list{grid-template-columns:1fr}
       .about{grid-template-columns:1fr;gap:30px}.about-quote{font-size:39px}
       .steps{grid-template-columns:1fr 1fr}.step{min-height:210px;padding:22px 18px}.step b{margin-bottom:24px}.step p{font-size:13px}
-      .reviews-layout{gap:28px}.review-quotes{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(82vw,1fr);gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-inline:contain;padding:0 2px 10px;scrollbar-width:none}.review-quotes::-webkit-scrollbar{display:none}.review-card{padding:23px 20px}.review-card blockquote{padding-right:22px;font-size:24px}.review-avatar{width:56px;height:56px;flex-basis:56px}.review-proof{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.review-shot{border-radius:16px}.review-shot span{font-size:9px;padding:8px}
+      .reviews-layout{gap:28px}.review-quotes{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(82vw,1fr);gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-inline:contain;padding:0 2px 10px;scrollbar-width:none}.review-quotes::-webkit-scrollbar{display:none}.review-card{padding:23px 20px}.review-card blockquote{padding-right:22px;font-size:24px}.review-avatar{width:56px;height:56px;flex-basis:56px}
       .closing{padding:76px 22px 100px}.legal-center{padding:58px 20px 72px}.legal-head{display:block}.legal-intro{margin-top:18px}.legal-doc summary{grid-template-columns:28px 1fr auto;gap:10px}.legal-body{padding-left:38px}.footer{padding:24px 20px 94px;display:block}.footer-links{justify-content:flex-start;margin-top:12px}.legal-note{margin-top:14px}
       .mobile-cta{display:block;position:fixed;z-index:12;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));background:#f1dfca;color:var(--ink);border:0;border-radius:999px;min-height:54px;font-weight:600;box-shadow:0 12px 38px rgba(0,0,0,.3)}
       .gallery-top{height:64px;padding:8px 12px}.gallery-heading strong{font-size:clamp(14px,4.2vw,18px);line-height:1.15}.gallery-heading span{font-size:9px;letter-spacing:.08em}.gallery-stage{width:100%;min-width:0;padding:14px}.gallery-image{display:block;width:100%;height:100%;min-width:0;min-height:0;max-width:100%;max-height:100%;object-fit:contain!important;object-position:center;padding:0}.gallery-nav{width:42px;height:42px;top:auto;bottom:14px}.gallery-prev{left:14px}.gallery-next{right:14px}.gallery-bottom{width:100%;min-height:68px;padding:12px 68px max(12px,env(safe-area-inset-bottom));justify-content:center}.gallery-caption{display:none}.gallery-counter{text-align:center}.gallery-close{width:38px;height:38px}
@@ -257,7 +251,6 @@
     .booking-box{background:#724052}.about{background:#f3e5e1}.process,.step{background:#ead7da}
     .reviews{background:#f7e9ed;color:#3b252d}.reviews .section-note{color:rgba(59,37,45,.7)}
     .review-card{border-color:rgba(74,42,52,.16);background:rgba(255,255,255,.5)}.review-card blockquote{color:#4a2c37}.review-card:before{color:rgba(135,60,88,.22)}
-    .review-source-note{color:rgba(59,37,45,.58)}
     .closing{background:#873c58}.legal-center{background:#4a3039}.footer{background:#3b252d}
     @media(max-width:820px){.hero-media:after{background:linear-gradient(180deg,rgba(244,228,232,.24),rgba(244,228,232,0) 28%),linear-gradient(0deg,rgba(244,228,232,.98) 0%,rgba(244,228,232,.88) 44%,rgba(244,228,232,.08) 80%)}}
   </style>
@@ -371,17 +364,6 @@
             <blockquote>Было очень весело — мы даже забыли, что все эмоции снимают на камеру. Получили чистый кайф, а фотографии хочется выложить все.</blockquote>
             <footer><img class="review-avatar" loading="lazy" src="../enzhe/assets/albums/only-us-02.jpg" alt="Пара после совместной фотосъёмки"><span>Отзыв после съёмки пары</span></footer>
           </article>
-        </div>
-        <div class="review-proof" aria-label="Оригиналы отзывов клиентов">
-          <a class="review-shot" href="../enzhe/assets/reviews/review-story-01.jpg" target="_blank" rel="noopener" aria-label="Открыть первый оригинал отзыва">
-            <img loading="lazy" src="../enzhe/assets/reviews/review-story-01.jpg" alt="Отзыв клиента о лёгкой съёмке, красивом результате и приятной атмосфере">
-            <span>Открыть оригинал</span>
-          </a>
-          <a class="review-shot" href="../enzhe/assets/reviews/review-story-02.jpg" target="_blank" rel="noopener" aria-label="Открыть второй оригинал отзывов">
-            <img loading="lazy" src="../enzhe/assets/reviews/review-story-02.jpg" alt="Коллаж с отзывами клиентов после фотосессий">
-            <span>Открыть оригинал</span>
-          </a>
-          <p class="review-source-note">Тексты сохранены по смыслу, оригинальные сообщения можно открыть нажатием.</p>
         </div>
       </div>
     </section>
