@@ -50,6 +50,10 @@
     .button{min-height:52px;padding:0 22px;border-radius:999px;border:1px solid transparent;display:inline-flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;transition:.25s ease}
     .button-primary{background:#f3e5d3;color:var(--ink)}
     .button-primary:hover{background:white;transform:translateY(-2px)}
+    .button-primary,.mobile-cta{position:relative;overflow:hidden;isolation:isolate}
+    .button-primary:after,.mobile-cta:after{content:"";position:absolute;top:-70%;bottom:-70%;left:-45%;width:28%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.58),transparent);transform:skewX(-18deg);animation:cta-shine 3s ease-in-out infinite;pointer-events:none}
+    @keyframes cta-shine{0%,58%{left:-45%}88%,100%{left:118%}}
+    @media(prefers-reduced-motion:reduce){.button-primary:after,.mobile-cta:after{animation:none}}
     .button-ghost{border-color:rgba(255,255,255,.35);color:white}
     .button-ghost:hover{border-color:white}
     .hero-foot{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-top:54px;color:rgba(255,255,255,.7);font-size:13px;font-weight:500}
