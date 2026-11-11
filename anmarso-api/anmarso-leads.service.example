@@ -1,0 +1,22 @@
+[Unit]
+Description=ANMARSO lead receiver
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=anmarso-leads
+Group=anmarso-leads
+WorkingDirectory=/opt/anmarso-leads
+EnvironmentFile=/etc/anmarso-leads.env
+ExecStart=/usr/bin/node /opt/anmarso-leads/server.mjs
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/anmarso-leads
+
+[Install]
+WantedBy=multi-user.target
