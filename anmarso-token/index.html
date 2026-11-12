@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; img-src data:; base-uri 'none'; form-action 'none'">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Безопасная передача токена ANMARSO</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#f3f5f7;color:#17202a;font-family:Arial,sans-serif}.box{max-width:620px;margin:24px auto;padding:22px;background:#fff;border-radius:18px;box-shadow:0 10px 30px #17202a18}h1{font-size:24px;margin:0 0 10px}.note{line-height:1.45;color:#46515c}.safe{padding:12px 14px;border-radius:12px;background:#eaf8ef;color:#176b3a;font-weight:700}label{display:block;margin:20px 0 8px;font-weight:700}textarea{width:100%;min-height:115px;padding:13px;border:2px solid #ccd4dc;border-radius:12px;font:16px monospace;resize:vertical}button{width:100%;margin-top:12px;padding:14px;border:0;border-radius:12px;background:#111;color:#fff;font-size:17px;font-weight:700}button.secondary{background:#eef1f4;color:#111}button:disabled{opacity:.45}.status{min-height:24px;margin-top:14px;font-weight:700}.small{font-size:13px;color:#66717d;line-height:1.4}
+  </style>
+</head>
+<body>
+  <main class="box">
+    <h1>Передача токена ANMARSO</h1>
+    <p class="safe">Токен шифруется прямо на телефоне и никуда не отправляется.</p>
+    <p class="note">1. В MAX нажмите значок копирования справа от токена.<br>2. Вставьте токен в первое поле.<br>3. Нажмите «Зашифровать».<br>4. Скопируйте полученный код и отправьте Иреку.</p>
+    <label for="token">Вставьте полный токен</label>
+    <textarea id="token" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Вставьте токен из MAX"></textarea>
+    <button id="encrypt">Зашифровать токен</button>
+    <label for="result">Зашифрованный код</label>
+    <textarea id="result" readonly placeholder="Здесь появится безопасный зашифрованный код"></textarea>
+    <button id="copy" class="secondary" disabled>Скопировать зашифрованный код</button>
+    <p id="status" class="status"></p>
+    <p class="small">На странице нет отправки данных, рекламы и внешних подключений. После шифрования исходный токен удаляется из поля. Отправляйте только длинный код из второго поля.</p>
+  </main>
+  <script>
+    const publicKeyBase64='MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0jA0cbaMxvVhoarvoPtjiWnvApQdxdKOqsi02sTkFbP5q6CcYpyqrhPmX2FufptoLE5ANuxBDozfIXAMkR5LXooavJtst4/QgpT27+URTRSf6z2Z7mHGMURQe0lK5+R8A4CeizGs2KF3mwDIB/TuNkcIPKmQ8q2imCxMWHsTAuP9ERGDrLDHwYa0CqfGjCp8aLLj4ij+ckk5GjXiZKW93E7E7nkDgO+YOkmwsXHFMfHAfeO6ys0gp3UTjmSeM/oO3zhxWzDKjnoPXlqHccw1APn0wuxcedUTGeczQgRcknqqLkIU9zSLJXigvOKxZE/BnEgbp51wNIBtslmUxkP11QIDAQAB';
+    const token=document.getElementById('token'),result=document.getElementById('result'),status=document.getElementById('status'),copy=document.getElementById('copy');
+    const fromBase64=value=>Uint8Array.from(atob(value),c=>c.charCodeAt(0));
+    const toBase64=value=>{const bytes=new Uint8Array(value);let binary='';for(let i=0;i<bytes.length;i++)binary+=String.fromCharCode(bytes[i]);return btoa(binary)};
+    document.getElementById('encrypt').addEventListener('click',async()=>{
+      const value=token.value.trim();result.value='';copy.disabled=true;
+      if(value.length<20||value.length>200||!/^[A-Za-z0-9._~-]+$/.test(value)){status.textContent='Проверьте токен: вставьте его полностью, без пробелов.';status.style.color='#a12622';return}
+      try{const key=await crypto.subtle.importKey('spki',fromBase64(publicKeyBase64),{name:'RSA-OAEP',hash:'SHA-256'},false,['encrypt']);const encrypted=await crypto.subtle.encrypt({name:'RSA-OAEP'},key,new TextEncoder().encode(value));result.value='ANMARSO1.'+toBase64(encrypted);token.value='';copy.disabled=false;status.textContent='Готово. Скопируйте и отправьте только зашифрованный код.';status.style.color='#176b3a'}catch(error){status.textContent='Не получилось. Откройте ссылку в Chrome или Яндекс Браузере.';status.style.color='#a12622'}
+    });
+    copy.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(result.value);status.textContent='Зашифрованный код скопирован.'}catch(error){result.focus();result.select();status.textContent='Код выделен. Нажмите «Копировать» в меню телефона.'}});
+  </script>
+</body>
+</html>
